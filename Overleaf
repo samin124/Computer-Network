@@ -1,1 +1,327 @@
-Latex : https://www.overleaf.com/project/67605fe5428cf76fffa54e93
+\documentclass[conference]{IEEEtran}
+
+
+% Packages
+\usepackage{graphicx} % For figures
+\usepackage{amsmath} % For math formulas
+\usepackage{cite}    % For citations
+\usepackage{hyperref} % For hyperlinks
+\usepackage{listings} % For code snippets if needed
+
+% Title and Author Information
+\title{Home Automation with Wireless Sensor Networks (WSN) Using IEEE 802.15.4: Enhancing Scalability and Cost Efficiency}
+\author{\IEEEauthorblockN{Mohammad Abrar Yasir, Shadman Yaser, MD.Sadman Hasan, Mohammed Jayed, Baizid Kamruzzaman}
+\IEEEauthorblockA{
+Department of Computer Science and Engineering, International Islamic University Chittagong\\
+Chattogram, Bangladesh\\
+Email: shadmanyaser890@gmail.com}}
+
+% Document Starts
+\begin{document}
+\maketitle
+
+% Abstract
+\begin{abstract}
+This project implements a home automation system using Wireless Sensor Networks (WSN) based on the IEEE 802.15.4 standard. The design prioritizes scalability, cost efficiency, and low-latency communication. We evaluated three network topologies—Star, Mesh, and Peer-to-Peer—using OMNet++ simulation. Star topology demonstrated superior performance in terms of delay and packet delivery ratio, making it the optimal choice for this application.
+\end{abstract}
+
+% Keywords
+\begin{IEEEkeywords}
+Add keywords related to your project here (e.g., OMNet++, topology, simulation, IEEE802.15.4).
+\end{IEEEkeywords}
+
+% Acknowledgements
+\section*{Acknowledgements}
+We express our gratitude to Abdullah Kafi sir, TA Abdullah Al Noman  for their invaluable guidance as well as necessary resources and facilities throughout the project. We would also like to acknowledge the contributions of our peers and team members for their support and collaboration.
+
+% Introduction
+\section{Introduction}
+The goal of this project is to develop a cost-efficient and scalable WSN-based home automation system. The IEEE 802.15.4 standard was chosen for its suitability for low-power and low-cost IoT applications. We analyzed different network topologies to identify the most efficient configuration, ultimately recommending Star topology for its balance of scalability and performance. This report summarizes the methodologies, results, and findings of our project.
+
+% Background
+\section{Background}
+With the rise of IoT applications, WSNs play a critical role in enabling seamless and energy-efficient connectivity. IEEE 802.15.4, a standard for low-rate wireless personal area networks (LR-WPANs), provides a robust framework for implementing such systems. We utilized OMNet++ for simulation, leveraging its flexibility to test various network configurations and evaluate performance metrics like latency and packet delivery ratio.
+
+% Literature Review
+\section{Literature Review}
+
+\subsection{Performance Evaluation for Large Scale Star Topology}
+Ziyad K. Farej and Ali M. Abdul-Hameed, in their paper \textit{Performance Evaluation for Large Scale Star Topology IEEE 802.15.4 Based WSN}, analyze the performance of IEEE 802.15.4 WSNs using the OPNET simulator. They identify optimal settings—230 nodes, a packet size of 2048 bits, and a PIT of 2 seconds—for maximizing throughput and minimizing delays. The study highlights the star topology's efficiency for low-latency applications like biomedical monitoring while recommending tree or mesh topologies for extended coverage. This work provides valuable insights into optimizing WSN configurations for scalable deployments \cite{farej2015performance}.
+
+\subsection{Building IEEE 802.15.4 Accelerators}
+T. Gomes et al., in their paper \textit{Building IEEE 802.15.4 Accelerators for Heterogeneous Wireless Sensor Nodes}, present an FPGA-based accelerator for IEEE 802.15.4 networks targeting IoT applications. The proposed solution offloads packet filtering and processing tasks from the microcontroller, reducing system overhead by 17\% and improving availability by up to 59\%. This enables energy-efficient operation and better handling of high data loads in resource-constrained WSNs. The study demonstrates the effectiveness of heterogeneous architectures in enhancing WSN performance, making it a key reference for optimizing IoT-based network systems \cite{gomes2018accelerators}.
+
+\subsection{Modeling and Optimization of IEEE 802.15.4}
+Pangun Park et al., in their paper \textit{Modeling and Optimization of the IEEE 802.15.4 Protocol for Reliable and Timely Communications}, introduce a Markov chain-based model to optimize IEEE 802.15.4 medium access control parameters. Their adaptive algorithm minimizes power consumption while maintaining reliability and delay constraints, making it highly suitable for dynamic wireless sensor network (WSN) environments. The study demonstrates the effectiveness of this approach in addressing energy efficiency and communication reliability without requiring modifications to the IEEE 802.15.4 standard, providing a strong foundation for enhancing protocol performance in IoT and industrial applications \cite{park2010optimization}.
+
+% Problem Statement
+% Problem Statement
+\section{Problem Statement}
+Traditional home automation systems struggle with scalability and cost efficiency. Our project aims to address these issues by designing a WSN-based solution that optimizes network performance and minimizes delays while adhering to the constraints of IEEE 802.15.4.
+
+\subsection{Description}
+The system connects multiple sensors to a central controller, enabling real-time monitoring and control. This configuration allows for efficient management of resources while maintaining low latency and high reliability across the network.
+
+\subsection{Calculations}
+
+\textbf{Latency:}
+\[
+\text{Latency} = t_{\text{receive}} - t_{\text{send}}
+\]
+where \( t_{\text{receive}} \) and \( t_{\text{send}} \) represent the time when a packet is received and sent, respectively. Latency measures the delay between the transmission and reception of data, which is critical in real-time monitoring applications.
+
+\textbf{Packet Delivery Ratio (PDR):}
+\[
+\text{PDR} = \frac{\text{Packets Received}}{\text{Packets Sent}} \times 100 \%
+\]
+This metric indicates the reliability of the network by measuring the percentage of successfully received packets relative to the total packets sent.
+
+\textbf{Energy Consumption:}
+Evaluates the power efficiency of the network. Energy consumption is an important factor in WSNs, especially in scenarios with battery-powered devices. Minimizing energy usage while maintaining performance is essential for the sustainability of the system.
+
+\subsection{Software and Hardware}
+\textbf{Software:} OMNet++ simulation environment, which is used to model and simulate the WSN's behavior and performance under different conditions.
+
+\textbf{Hardware:} IEEE 802.15.4-compatible modules, which provide the communication interface for the sensor nodes and central controller in the WSN.
+
+\subsection{Topology}
+\textbf{Star Topology:} Centralized communication with minimal delay.
+
+\textbf{Mesh Topology:} Robust but introduces higher latency due to multi-hop communication.
+
+\textbf{Peer-to-Peer Topology:} Direct communication but less efficient for IEEE 802.15.4 networks due to the lack of centralized coordination.
+
+%implementation part
+\section{Implementation}
+
+\subsection{Installing OMNet++ on Your System}
+\begin{enumerate}
+    \item Download the OMNet++ package from the official website.
+    \item Follow the installation guide specific to your operating system.
+    \item Verify the installation by running the sample projects.
+\end{enumerate}
+
+\subsection{Setting Up the Project}
+\begin{enumerate}
+    \item Create a new project in OMNet++.
+    \item Define network modules using NED files.
+    \item Configure parameters in the \texttt{.ini} file for topology-specific simulations.
+    \item Implement custom behaviors for nodes using C++ classes.
+\end{enumerate}
+
+\subsection{Module Design}
+Module design involves the following steps:
+\begin{enumerate}
+    \item Breaking your network into functional modules (simple and compound).
+    \item Defining their structure using NED files.
+    \item Implementing behavior in C++ for simple modules.
+    \item Connecting modules using gates and configuring them via \texttt{.ini} files.
+\end{enumerate}
+
+\subsection{Network Design}
+The network is designed using a Star topology to enable reliable communication between sensor nodes and a central controller for home automation. Sensor nodes collect data, which is transmitted directly to the controller, ensuring low latency and efficient packet delivery. The system leverages the IEEE 802.15.4 standard to maintain scalability, cost efficiency, and energy conservation.
+
+\subsection{Configuration}
+Simulation parameters were configured to align with the IEEE 802.15.4 protocol. The network topology, node placement, and traffic patterns were defined in NED files. A configuration file (\texttt{.ini}) was used to set simulation time, logging options, and other parameters. The OMNet++ simulator was set to measure performance metrics such as latency, packet delivery ratio, and energy consumption, ensuring consistency with the project goals.
+
+\subsection{Running the Simulation}
+The simulation was executed in OMNet++, with the network modules verified in the NED editor before running. During execution, the behavior of nodes and data transmission was monitored. Results were collected and analyzed to evaluate performance metrics, confirming that the Star topology achieved the desired balance of scalability, cost efficiency, and low-latency communication.
+
+
+% Experimental and Theoretical Results
+\section{Experimental and Theoretical Results}
+
+\subsection{End-to-End Delay}
+
+\textbf{Mesh Topology:} Delay ranged between 0.015–0.045 seconds, with a peak around 0.02 seconds. The variation is higher due to multi-hop communication, causing delays for certain packets. Mesh topology is less efficient due to longer paths and potential congestion.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{mesh-1.png}
+    \caption{Mesh Topology}
+    \label{fig:MeshTopology}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{mesh-2.png}
+    \caption{Histogram of Mesh Topology Delay}
+    \label{fig:MeshDelayHistogram}
+\end{figure}
+
+\textbf{Star Topology:} Delay ranged between 0.015–0.025 seconds, with most packets delivered within 0.015–0.018 seconds. This minimal variation shows consistent and predictable communication, making it ideal for time-sensitive IEEE 802.15.4 applications.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{star-1.png}
+    \caption{Star Topology}
+    \label{fig:StarTopology}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{star-1-old.png}
+    \caption{Star Topology Old}
+    \label{fig:StarTopologyOld}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{star-2-old.png}
+    \caption{Histogram of Star Topology Delay (Old)}
+    \label{fig:StarDelayHistogramOld}
+\end{figure}
+
+\textbf{Peer-to-Peer Topology:} Delays are narrowly concentrated near zero with minimal spread and variability. Direct communication without centralized coordination ensures the lowest and most consistent delay.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{peer-1.png}
+    \caption{Peer-to-Peer Topology}
+    \label{fig:PeerToPeerTopology}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{peer-2.png}
+    \caption{Histogram of Peer-to-Peer Topology Delay}
+    \label{fig:PeerDelayHistogram}
+\end{figure}
+
+\subsection{Packet Delivery Ratio (PDR)}
+
+\textbf{Mesh Topology:} Shows reduced efficiency due to longer routes and higher congestion. Packet delivery drops significantly as the network grows.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{mesh-3.png}
+    \caption{Packet Delivery Ratio (PDR): Packet Sent Graph (Mesh Topology)}
+    \label{fig:PacketSentGraphMesh}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{mesh-4.png}
+    \caption{Packet Delivery Ratio (PDR): Received by Controller and Sensor (Mesh Topology)}
+    \label{fig:PacketReceiveGraphMesh}
+\end{figure}
+
+\textbf{Star Topology:} Maintains high delivery rates due to centralized communication. The hub efficiently routes packets, reducing loss.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{star-3.png}
+    \caption{Packet Delivery Ratio (PDR): Packet Sent Graph (Star Topology)}
+    \label{fig:PacketSentGraphStar}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{star-4.png}
+    \caption{Packet Delivery Ratio (PDR): Received by Controller and Sensor (Star Topology)}
+    \label{fig:PacketReceiveGraphStar}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{star-3-old.png}
+    \caption{Packet Delivery Ratio (PDR): Sent by Controller and Sensor (Star Topology - Old)}
+    \label{fig:PacketReceiveGraphStarOld}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{star-4-old.png}
+    \caption{Packet Delivery Ratio (PDR): Received by Controller and Sensor (Star Topology - Old)}
+    \label{fig:PacketReceiveGraphStarOld2}
+\end{figure}
+
+\textbf{Peer-to-Peer Topology:} Performance is moderate, with delivery rates affected by lack of central coordination and increased overhead.
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{peer-3.png}
+    \caption{Packet Delivery Ratio (PDR): Packet Sent Graph (Peer-to-Peer Topology)}
+    \label{fig:PacketSentGraphPeer}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\columnwidth]{peer-4.png}
+    \caption{Packet Delivery Ratio (PDR): Received by Controller and Sensor (Peer-to-Peer Topology)}
+    \label{fig:PacketReceiveGraphPeer}
+\end{figure}
+
+
+
+
+
+\subsection{Comparative Analysis}
+Star topology outperforms other configurations in scalability, low cost, and efficiency. It ensures lower delay and higher packet delivery consistency. Peer-to-peer, while offering simplicity, struggles with scaling. Mesh topology is robust but incurs high delays and increased complexity.
+
+\subsection{Bar Chart Analysis}
+A bar chart comparing end-to-end delay, PDR, and throughput for each topology highlights Star Topology's superior performance. Delays are minimal, and delivery rates are consistently high.
+
+\subsection{Discussion on Results}
+The results validate Star Topology as the optimal choice for IEEE 802.15.4 applications requiring scalability and efficiency. While Mesh topology is more robust for larger, dynamic networks, its delay variability makes it less suitable for low-latency requirements. Peer-to-peer excels in small, decentralized applications but struggles as the network grows.
+
+%future work
+\section{Future Work}
+The project successfully implemented and analyzed the performance of IEEE 802.15.4 in various topologies, with a focus on scalability, cost efficiency, and reliability for home automation systems. Future work can explore the following:
+
+\begin{itemize}
+    \item \textbf{Integration with IoT Devices:} Expanding the system to integrate with more IoT devices and platforms to improve interoperability and flexibility.
+    \item \textbf{Energy Efficiency Optimization:} Designing additional algorithms to further reduce power consumption for larger networks.
+    \item \textbf{Dynamic Topology Adaptation:} Incorporating adaptive topology mechanisms to switch between star and mesh configurations based on network size and application requirements.
+    \item \textbf{Real-Time Implementation:} Testing the system in real-world environments with a mix of static and mobile devices to validate performance metrics.
+    \item \textbf{Security Enhancements:} Developing encryption mechanisms tailored for low-power devices to enhance data security and protect against attacks.
+\end{itemize}
+
+
+% Conclusion
+\section{Conclusion}
+The project demonstrates the effective use of IEEE 802.15.4 in home automation systems, emphasizing scalability, low cost, and efficiency. By comparing star, mesh, and peer-to-peer topologies, it was concluded that the star topology is the most suitable for the given objectives, offering minimal delays, predictable performance, and cost-effective implementation. The results validate the potential of IEEE 802.15.4 for building scalable and efficient wireless sensor networks, making it an ideal choice for low-power IoT applications. The findings highlight the practicality of centralized communication systems and provide a robust foundation for future enhancements in home automation solutions.
+
+% References
+\section{References}
+\begin{thebibliography}{5}
+
+\bibitem{farej2015performance}
+Z. K. Farej and A. M. Abdul-Hameed, ``Performance Evaluation for Large Scale Star Topology IEEE 802.15.4 Based WSN,'' \textit{OPNET Simulations}.
+
+\bibitem{gomes2017accelerators}
+T. Gomes, et al., ``Building IEEE 802.15.4 Accelerators for Heterogeneous Wireless Sensor Nodes,'' \textit{IEEE Sensors Letters}, 2017.
+
+\bibitem{park2013optimization}
+P. Park, et al., ``Modeling and Optimization of the IEEE 802.15.4 Protocol for Reliable and Timely Communications,'' \textit{IEEE Transactions on Parallel and Distributed Systems}, 2013.
+
+\bibitem{omnetplusplus}
+OMNeT++ Simulation Environment Documentation.
+
+\bibitem{ieee802154}
+IEEE Standard for Local and Metropolitan Area Networks: Part 15.4.
+
+\end{thebibliography}
+%Apendix
+\appendix
+\section{Appendix}
+
+\subsection{Simulation Configuration Details}
+\begin{itemize}
+    \item \textbf{Simulation Tool:} OMNeT++
+    \item \textbf{Protocol Implemented:} IEEE 802.15.4
+    \item \textbf{Topologies Tested:} Star, Mesh, Peer-to-Peer
+    \item \textbf{Performance Metrics:} Latency, Packet Delivery Ratio, Throughput
+\end{itemize}
+
+\subsection{Topology Graphs and Statistics}
+\begin{itemize}
+    \item End-to-End Delay Comparison Graphs
+    \item Packet Delivery Ratio Statistics for Each Topology
+    \item Throughput Analysis Graphs for Star, Mesh, and Peer-to-Peer Configurations
+\end{itemize}
+
+\subsection{Module Design Description}
+\begin{itemize}
+    \item NED File Examples for Star Topology
+    \item C++ Implementation Snippet for Packet Handling
+    \item .INI Configuration Snippets for Different Topologies
+\end{itemize}
+
+
+\end{document}
+
