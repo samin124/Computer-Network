@@ -1,0 +1,23 @@
+
+.xml file----------------------------
+-----------------------------------------
+<config>
+    <!-- Assign IP addresses for nodes -->
+    <interface hosts="controller" address="10.0.0.1" netmask="255.255.255.0"/>
+    <interface hosts="lamp1" address="10.0.0.2" netmask="255.255.255.0"/>
+    <interface hosts="lamp2" address="10.0.0.3" netmask="255.255.255.0"/>
+    <interface hosts="lamp3" address="10.0.0.4" netmask="255.255.255.0"/>
+    <interface hosts="lamp4" address="10.0.0.5" netmask="255.255.255.0"/>
+    <interface hosts="lamp5" address="10.0.0.6" netmask="255.255.255.0"/>
+    <interface hosts="lamp6" address="10.0.0.7" netmask="255.255.255.0"/>
+    <interface hosts="lamp7" address="10.0.0.8" netmask="255.255.255.0"/>
+    <interface hosts="lamp8" address="10.0.0.9" netmask="255.255.255.0"/>
+    <interface hosts="sensor1" address="10.0.0.10" netmask="255.255.255.0"/>
+    <interface hosts="sensor2" address="10.0.0.11" netmask="255.255.255.0"/>
+    <interface hosts="sensor3" address="10.0.0.12" netmask="255.255.255.0"/>
+    <interface hosts="sensor4" address="10.0.0.13" netmask="255.255.255.0"/>
+    <interface hosts="sensor5" address="10.0.0.14" netmask="255.255.255.0"/>
+
+    <!-- Define routes -->
+    <route hosts="*" interface="wlan0" destination="*" gateway="*"/>
+</config>
